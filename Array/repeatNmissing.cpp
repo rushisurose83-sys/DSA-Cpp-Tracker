@@ -168,42 +168,131 @@
 
 // Repeat and missing
 
+// #include<iostream>
+// #include<vector>
+// #include<unordered_set>
+// using namespace std;
+
+// vector<int> repeatNmissing(vector<vector<int>>& vec){
+//     int a , b;
+//     int n = vec.size();
+//     int t_sum = (n*n)*((n*n)+1)/2;
+//     int g_sum = 0 ;
+//     unordered_set<int> s ;
+//     for (int i = 0; i < n; i++)
+//     {
+//         for (int j = 0; j < n; j++)
+//         {
+//             if (s.find(vec[i][j]) != s.end())
+//             {
+//                 a = vec[i][j];
+//             }
+//             else{
+//             s.insert(vec[i][j]);
+//             g_sum += vec[i][j];
+//             }
+            
+//         }
+        
+//     }
+//     b = t_sum-g_sum;
+//     return {a,b};
+// }
+                 
+// int main() {
+//     vector<vector<int>> vec = {{9,1,7},{8,9,2},{3,4,5}};
+//     vector<int> ans = repeatNmissing(vec);
+//     for(int val : ans){
+//         cout << val << " " ;
+//     }      
+//     return 0;
+// }
+
+// Find Duplicates :
+// #include<iostream>
+// #include<vector>
+// #include<unordered_set>
+// using namespace std;
+
+// vector<int> duplicates(vector<int>& vec){
+//     unordered_set<int> s ;
+//     vector<int> ans ;
+//     int n = vec.size();
+//     for (int i = 0; i < n; i++)
+//     {
+//         if (s.find(vec[i])!=s.end())
+//         {
+//             ans.push_back(vec[i]);
+//         }
+//         else
+//         {
+//             s.insert(vec[i]);
+//         }
+        
+//     }
+//     return ans ;
+// }
+                 
+// int main() {
+//     vector<int> vec = {1,3,4,2,3,1,5};
+//     vector<int> ans = duplicates(vec);
+//     for(int val : ans){
+//         cout << val << " ";
+//     }       
+//     return 0;
+// }
+
+
+// remove duplicates
+// class Solution {
+// public:
+//     int removeDuplicates(vector<int>& nums) {
+//         vector<int> ans ;
+//         int n = nums.size();
+//         unordered_set<int> s ;
+//         int idx = 0 ;
+//         for(int i = 0 ; i < n ; i++){
+//             if(s.find(nums[i])!=s.end()){
+//                 continue;
+//             }
+//             else{
+//                 s.insert(nums[i]);
+//                 nums[idx] = nums[i]; 
+//                 idx ++;
+
+//             }
+//         }
+//         return idx ;
+        
+//     }
+// };
+
+// more optimized solution (slow and fast pointer)
+
 #include<iostream>
 #include<vector>
-#include<unordered_set>
 using namespace std;
 
-vector<int> repeatNmissing(vector<vector<int>>& vec){
-    int a , b;
-    int n = vec.size();
-    int t_sum = (n*n)*((n*n)+1)/2;
-    int g_sum = 0 ;
-    unordered_set<int> s ;
-    for (int i = 0; i < n; i++)
+int duplicates(vector<int>& vec){
+    int slow = vec[0] ;
+    int fast = vec[0];
+    do
     {
-        for (int j = 0; j < n; j++)
-        {
-            if (s.find(vec[i][j]) != s.end())
-            {
-                a = vec[i][j];
-            }
-            else{
-            s.insert(vec[i][j]);
-            g_sum += vec[i][j];
-            }
-            
-        }
-        
+        slow = vec[slow];
+        fast = vec[vec[fast]];
+    } while (slow!=fast);
+    slow = vec[0];
+    while (slow!=fast)
+    {
+        slow = vec[slow] ;
+        fast = vec[fast] ;
     }
-    b = t_sum-g_sum;
-    return {a,b};
+    return slow ;
+    
 }
                  
 int main() {
-    vector<vector<int>> vec = {{9,1,7},{8,9,2},{3,4,5}};
-    vector<int> ans = repeatNmissing(vec);
-    for(int val : ans){
-        cout << val << " " ;
-    }      
+    vector<int> vec = {3,1,3,4,2}  ;
+    cout << duplicates(vec);  
     return 0;
 }
