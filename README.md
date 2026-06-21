@@ -8,10 +8,10 @@ This repository documents my daily execution and mastery of Data Structures & Al
 *   **Core Concepts:** Standard Template Library (STL), Memory Management, Time/Space Complexity.
 
 ### 📂 Repository Structure
-*   **`STL/`** : Implementations of sequential/non-sequential containers, iterators, and core algorithms (sort, binary search, min/max).
-*   **`Array/`** : Array manipulation and optimization.
-*   **`string/`** : String parsing and logic.
-*   **`Maths_DSA/`** : Mathematical algorithms and logic foundations.
+1.STL
+2.Array
+3.String
+4.Maths_DSA
 
 ### 👤 About Me
 Computer Engineering Undergrad at AISSMS IOIT (2nd Year). 
