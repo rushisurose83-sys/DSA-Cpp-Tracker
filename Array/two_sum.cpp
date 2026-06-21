@@ -253,17 +253,3 @@
 //     }           
 //     return 0;
 // }
-
-#include<iostream>
-using namespace std;
-                 
-int main() {
-    int n = 100000;
-    for (int i = 1; i <= n; i++)
-    {
-        cout << i << " " ;
-    }
-    cout << "Done" ;
-            
-    return 0;
-}
