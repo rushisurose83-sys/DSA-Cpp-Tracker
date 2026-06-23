@@ -12,7 +12,6 @@ This repository documents my daily execution and mastery of Data Structures & Al
 2. Array
 3. String
 4. Maths_DSA 
-5. Recursion
 
 ### 👤 About Me
 Computer Engineering Undergrad at AISSMS IOIT (2nd Year). 
