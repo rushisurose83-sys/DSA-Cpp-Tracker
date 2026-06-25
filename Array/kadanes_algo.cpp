@@ -185,3 +185,29 @@
 //     maxSum(arr);      
 //     return 0;
 // }
+
+#include<iostream>
+#include<vector>
+#include<algorithm>
+#include<climits>
+using namespace std;
+
+int maxSubArray(vector<int>& nums) {
+        int maxSum = INT_MIN ;
+        int n = nums.size();
+        vector<int> prefixSum (n) ;
+        prefixSum[0] = nums[0];
+        for(int i = 1 ; i < n ; i++){
+            prefixSum[i] = prefixSum[i-1]+nums[i] ;
+        }
+        sort(prefixSum.begin(),prefixSum.end());
+        int lastPtr = prefixSum.size()-1 ;
+        return prefixSum[lastPtr];
+    }
+                 
+int main() {
+    vector<int> nums = {2, 3, 5, -2, 7, -4}  ;   
+    int result = maxSubArray(nums);
+    cout << result << endl;
+    return 0;
+}

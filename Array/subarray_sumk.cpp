@@ -57,6 +57,7 @@ int subarray(vector<int> arr,int tar){
     for (int j = 0; j < n; j++)
     {
         if (prefixSum[j]==tar)
+        
         {
             count ++ ;
         }
