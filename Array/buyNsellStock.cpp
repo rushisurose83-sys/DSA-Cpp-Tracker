@@ -74,24 +74,23 @@
 
 
 // Less complexity solution for best buy and sell stock problem
-#include<iostream>
-#include<vector>
-#include<climits>
-using namespace std;
+// #include<iostream>
+// #include<vector>
+// #include<climits>
+// using namespace std;
 
-int maxProfit(vector<int>& prices){
-    int minPrice = INT_MAX ;
-    int maxPrice = INT_MIN ;
-    for(int price : prices){
-        minPrice = min(minPrice,price);
-        maxPrice = max(maxPrice,price-minPrice);
-    }
-    return maxPrice ;
-}
+// int maxProfit(vector<int>& prices){
+//     int minPrice = INT_MAX ;
+//     int maxPrice = INT_MIN ;
+//     for(int price : prices){
+//         minPrice = min(minPrice,price);
+//         maxPrice = max(maxPrice,price-minPrice);
+//     }
+//     return maxPrice ;
+// }
                  
-int main() {
-    vector<int> prices = {7,1,5,3,6,4};
-    cout << maxProfit(prices);       
-    return 0;
-}
-
+// int main() {
+//     vector<int> prices = {7,1,5,3,6,4};
+//     cout << maxProfit(prices);       
+//     return 0;
+// }
