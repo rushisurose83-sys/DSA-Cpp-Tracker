@@ -104,55 +104,55 @@
 //     return 0;
 // }
 
-#include <iostream>
-#include <vector>
-using namespace std;
+// #include <iostream>
+// #include <vector>
+// using namespace std;
 
-bool isValid(vector<int> nums, int m, int mid)
-{
-    int student = 1, pages = 0;
-    for (int i = 0; i < nums.size(); i++)
-    {
-        if (nums[i] > mid)
-            return false;
-        if (pages + nums[i] > mid)
-        {
-            student++;
-            pages += nums[i];
-        }
-        else
-            pages += nums[i];
-    }
-    if (student > m)
-        return false;
-    else
-        return true;
-}
-int findPages(vector<int> &nums, int m)
-{
-    int start = 0, end = 0, ans = -1;
-    for (int val : nums)
-    {
-        end += val;
-    }
-    while (start <= end)
-    {
-        int mid = start + (end - start) / 2;
-        if (isValid(nums, m, mid))
-        {
-            end = mid - 1;
-            ans = mid;
-        }
-        else
-            start = mid + 1;
-    }
-    return ans;
-}
+// bool isValid(vector<int> nums, int m, int mid)
+// {
+//     int student = 1, pages = 0;
+//     for (int i = 0; i < nums.size(); i++)
+//     {
+//         if (nums[i] > mid)
+//             return false;
+//         if (pages + nums[i] > mid)
+//         {
+//             student++;
+//             pages += nums[i];
+//         }
+//         else
+//             pages += nums[i];
+//     }
+//     if (student > m)
+//         return false;
+//     else
+//         return true;
+// }
+// int findPages(vector<int> &nums, int m)
+// {
+//     int start = 0, end = 0, ans = -1;
+//     for (int val : nums)
+//     {
+//         end += val;
+//     }
+//     while (start <= end)
+//     {
+//         int mid = start + (end - start) / 2;
+//         if (isValid(nums, m, mid))
+//         {
+//             end = mid - 1;
+//             ans = mid;
+//         }
+//         else
+//             start = mid + 1;
+//     }
+//     return ans;
+// }
 
-int main()
-{
-    vector<int> arr = {25, 46, 28, 49, 24};
-    int m = 4;
-    cout << findPages(arr, m);
-    return 0;
-}
+// int main()
+// {
+//     vector<int> arr = {25, 46, 28, 49, 24};
+//     int m = 4;
+//     cout << findPages(arr, m);
+//     return 0;
+// }
