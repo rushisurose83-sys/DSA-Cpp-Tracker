@@ -102,36 +102,17 @@
 // }
 
 // factorial using recursion
-// #include <iostream>
-// using namespace std;
-
-// int factorial(int n) {
-//         int product = n ;
-//         if(n==0) return 1 ;
-//         return product*factorial(n-1) ;
-// }
-
-// int main()
-// {
-//     cout << factorial(5) << endl ;
-//     return 0;
-// }
-
-#include<iostream>
+#include <iostream>
 using namespace std;
 
-int reverseNumber(int n) {
-        int rev = 0 ;
-        while(n>0){
-            int r = n%10 ;
-            rev = rev*10 + r ;
-            n /= 10 ;
-        }
-        return rev ;
-
+int factorial(int n) {
+        int product = n ;
+        if(n==0) return 1 ;
+        return product*factorial(n-1) ;
 }
-                 
-int main() {
-    cout << reverseNumber(125);       
+
+int main()
+{
+    cout << factorial(5) << endl ;
     return 0;
 }
