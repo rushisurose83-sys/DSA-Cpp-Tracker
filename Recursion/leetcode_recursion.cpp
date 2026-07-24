@@ -193,3 +193,99 @@
 //         return subset(0,0,k,nums);
 //     }
 // };
+
+// combination sum 2 more optimized way
+
+// #include<iostream>
+// #include<vector>
+// #include<algorithm>
+// using namespace std;
+
+// vector<vector<int>> ans;
+// void subset(vector<int> &curr, int currIdx, int sum, int target, int n, vector<int> &arr)
+// {
+//     if (sum == target)
+//     {
+//         ans.push_back(curr);
+//         return;
+//     }
+//     if (currIdx >= arr.size() || sum > target)
+//         return;
+
+//     for (int i = currIdx; i < n; i++)
+//     {
+//         if(i > currIdx && arr[i]==arr[i-1]) continue; // skip duplicates
+//         curr.push_back(arr[i]);
+//         sum += arr[i];
+//         subset(curr, i+1, sum, target, n, arr);
+//         sum -= arr[i];
+//         curr.pop_back();
+//     }
+// }
+// vector<vector<int>> combinationSum2(vector<int> &candidates, int target)
+// {
+//     sort(candidates.begin(), candidates.end());
+//     vector<int> curr;
+//     int n = candidates.size();
+//     int sum = 0;
+//     subset(curr, 0, sum, target, n, candidates);
+//     return ans;
+// }
+
+// int main() {
+//     vector<int> candidates = {10, 1, 2, 7, 6, 1, 5};
+//     int target = 8;
+//     vector<vector<int>> result = combinationSum2(candidates, target);
+//     for (const auto &vec : result) {
+//         cout << "[";
+//         for (size_t i = 0; i < vec.size(); ++i) {
+//             cout << vec[i];
+//             if (i + 1 < vec.size()) cout << ", ";
+//         }
+//         cout << "]\n";
+//     }        
+//     return 0;
+// }
+
+
+// combination sum 3 ;
+
+#include<iostream>
+#include<vector>
+using namespace std;
+
+void subset(int i , int currSum , int k, int n, vector<int>& backtrack, vector<vector<int>>& ans){
+    if(currSum == n && backtrack.size() == k){
+        ans.push_back(backtrack);
+        return ;
+    }
+    if(i>9 || currSum > n || backtrack.size() > k) return ;
+
+    backtrack.push_back(i);
+    subset(i+1,currSum+i,k,n,backtrack,ans);
+
+    backtrack.pop_back();
+    subset(i+1,currSum,k,n,backtrack,ans);
+}
+
+vector<vector<int>> combinationSum3(int k, int n) {
+    vector<vector<int>> ans;
+    vector<int> backtrack;
+    subset(1, 0, k, n, backtrack, ans);
+    return ans;
+}
+                 
+int main() {
+    int k = 3;
+    int n = 7;  
+    vector<vector<int>> result = combinationSum3(k, n);
+    for (const auto &vec : result) {
+        cout << "[";
+        for (size_t i = 0; i < vec.size(); ++i) {
+            cout << vec[i];
+            if (i + 1 < vec.size()) cout << ", ";
+        }
+        cout << "]\n";
+    }       
+    return 0;
+}
